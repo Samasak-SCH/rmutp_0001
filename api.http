@@ -1,6 +1,6 @@
 # Test API
 
-@demo_username = {{$dotenv APP_DEMO_USERNAME}}
+@demo_username = {{ $dotenv APP_DEMO_USERNAME}}
 @demo_password = {{ $dotenv APP_DEMO_PASSWORD }}
 @demo_email = {{ $dotenv APP_DEMO_EMAIL }}
 
