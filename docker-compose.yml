@@ -1,19 +1,19 @@
 services:
   db:
-    image: postgres:latest
-    container_name: my_db_compose
+    image: ${DB_IMAGE}
+    container_name: ${DB_CONTAINER}
     ports:
-      - "55432:5432"
+      - "${DB_EXPORT}:${DB_INPORT}"
     environment:
       - POSTGRES_DB=${DATABASE_NAME}
       - POSTGRES_USER=${DATABASE_USERNAME}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
         
   web:
-    image: prawee/strapi:latest
-    container_name: my_app_compose
+    image: ${WEB_IMAGE}
+    container_name: ${WEB_CONTAINER}
     ports:
-      - "8080:1337"
+      - "${APP_EXPORT}:${APP_INPORT}"
     environment:
       - DATABASE_HOST=db
       - DATABASE_PORT=${DATABASE_PORT}
