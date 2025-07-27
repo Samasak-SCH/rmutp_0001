@@ -1,35 +1,20 @@
 # Test API
 
-@demo_username={{$env APP_DEMO_USERNAME}}
-@demo_password={{$env APP_DEMO_PASSWORD}}
-@demo_email={{$env APP_DEMO_EMAIL}}
+@demo_username = {{$dotenv APP_DEMO_USERNAME}}
+@demo_password = {{ $dotenv APP_DEMO_PASSWORD }}
+@demo_email = {{ $dotenv APP_DEMO_EMAIL }}
 
 ### Register account
 POST http://localhost:8090/api/auth/local/register HTTP/1.1
 Content-Type: application/json
 
 {
-    "username": "${{demo_username}}",
-    "email": "${{demo_password}}",
-    "password": "${{demo_email}}"
+    "username": "{{demo_username}}",
+    "email": "{{demo_email}}",
+    "password": "{{demo_password}}"
 }
 
 ### Get all users
 
 GET http://localhost:8090/api/users HTTP/1.1
 Content-Type: application/json
-
-### Get profile
-
-GET http://localhost:8090/api/users/me HTTP/1.1
-Content-Type: application/json
-Authentication: 
-
-### Update Profile
-
-PUT http://localhost:8090/api/users/1 HTTP/1.1
-Content-Type: application/json
-Authentication: 
-{
-    "username": "${{demo_username}}_update"
-}
