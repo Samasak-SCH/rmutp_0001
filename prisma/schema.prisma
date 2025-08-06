@@ -13,6 +13,4 @@ model User {
   username String
   password String
   mobile   String
-  cardId   String
-  address  String
 }
