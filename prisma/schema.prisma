@@ -10,9 +10,8 @@ datasource db {
 
 model User {
   id       Int    @id @default(autoincrement())
-  username  String
-  password  String
-  mobile    String
-  cardId    String
-  address   String
+  username String
+  password String
+  mobile   String
+  cardId   String
 }
